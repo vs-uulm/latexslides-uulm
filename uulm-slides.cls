@@ -57,7 +57,7 @@
 	    \end{beamercolorbox}
 	    \hskip-2pt
 	    \begin{beamercolorbox}[wd=.95\paperwidth,ht=2.75ex,dp=1.5ex,left]{lighthead}
-		\hspace*{1em}\insertshorttitle{} $|$ \insertshortauthor{} $|$ \insertshortdate
+		\hspace*{1.5em}\insertshorttitle{} $|$ \insertshortauthor{} $|$ \insertshortdate
 	    \end{beamercolorbox}
 	}
 	\vskip3em
@@ -72,18 +72,19 @@
     \end{beamercolorbox}
     \vskip10pt
     \hbox{
-    \begin{beamercolorbox}[left,leftskip=-0.075\paperwidth,wd=.25\paperwidth]{author}
+    \begin{beamercolorbox}[left,leftskip=-0.075\paperwidth,wd=.385\paperwidth]{author}
 	\usebeamerfont{author}\insertauthor
         \vskip5pt
 	\insertdate
-    \end{beamercolorbox}
-	\hskip5pt
-    \begin{beamercolorbox}[left,wd=.6\paperwidth]{title}
+\end{beamercolorbox}
+% \hskip5pt
+% \hfill
+\begin{beamercolorbox}[left,wd=.5\paperwidth]{title}
 	\usebeamerfont{title}\inserttitle
         \vskip5pt
 	\usebeamerfont{subtitle}
         \insertsubtitle
-    \end{beamercolorbox}
+\end{beamercolorbox}
     }
     \vskip-30pt
 }
