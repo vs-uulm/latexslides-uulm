@@ -20,7 +20,7 @@
 \setbeamercolor{structure}{fg=uuinf}
 \setbeamercolor{headbox}{bg=uuinf,fg=white}
 \setbeamercolor{alerted text}{fg=uuinf}
-\setbeamercolor{lighthead}{fg=uuinf,bg=uuakzent!20!white}
+\setbeamercolor{lighthead}{fg=uuakzent!80!black,bg=uuakzent!20!white}
 
 \setbeamercolor{palette primary}{use=structure,fg=structure.fg}
 \setbeamercolor{palette secondary}{fg=uuakzent}
