@@ -1,4 +1,4 @@
-\ProvidesClass{uulm-slides-alternate}[2012/07/12 Alternate UUlm Slides]
+\ProvidesClass{uulm-slides}[2012/07/12 UUlm Slides]
 
 \LoadClass{beamer}
 
