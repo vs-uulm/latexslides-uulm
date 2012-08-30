@@ -15,6 +15,7 @@
 \RequirePackage{footnpag}
 \RequirePackage{wasysym}
 \RequirePackage{pgfpages}
+\RequirePackage{listings}
 
 % Command for multiple choice answer
 \newcommand{\mc}[1]{\indent\hspace{0.5cm}$\bigcirc$ #1 \\}
@@ -68,6 +69,12 @@
 \setbeamercolor{block body example}{parent=normal text,use=block title example,bg=block title example.bg!25!bg}
 
 \setbeamercolor*{itemize item}{fg=uulm-akzent}
+\setbeamercolor*{itemize subitem}{fg=uulm-med}
+\setbeamercolor*{itemize subsubitem}{fg=uulm-med!50}
+
+\setbeamercolor*{item projected}{bg=uulm-akzent, fg=white}
+\setbeamercolor*{subitem projected}{bg=uulm-med, fg=white}
+\setbeamercolor*{subsubitem projected}{bg=uulm-med!50, fg=white}
 
 % Font Theme
 \usepackage{helvet}
@@ -141,3 +148,52 @@
 \renewcommand*{\footnotesize}{\oldfootnotesize\tiny}
 
 
+\definecolor{darkviolet}{rgb}{0.5,0,0.4}
+\definecolor{darkgreen}{rgb}{0,0.4,0.2} 
+\definecolor{darkblue}{rgb}{0.1,0.1,0.9}
+\definecolor{darkgrey}{rgb}{0.5,0.5,0.5}
+\definecolor{lightblue}{rgb}{0.4,0.4,1}
+
+%Eclipse style (http://trac.rtsys.informatik.uni-kiel.de/trac/rtsys/wiki/Latex/Examples/Listings)
+\lstdefinestyle{eclipse}{
+	basicstyle=\tiny\ttfamily,
+	emphstyle=\color{red}\bfseries, 
+	keywordstyle=\color{darkviolet}\bfseries,
+	commentstyle=\color{darkgreen},
+	stringstyle=\color{darkblue},
+	numberstyle=\color{darkgrey}\tiny\ttfamily,
+	emphstyle=\color{red},
+	morecomment=[s][\color{lightblue}]{/**}{*/},
+	showstringspaces=false,
+	numbers=left
+}
+
+\lstdefinestyle{bw}{
+	basicstyle=\tiny\ttfamily,
+	numbers=left,
+	columns=fullflexible,
+	breaklines=true,
+	mathescape=true,
+	escapechar=\#,
+	tabsize=4,
+	frame=lines,
+	showstringspaces=false
+}
+
+\lstdefinestyle{console}{
+	basicstyle=\ttfamily\tiny\mdseries\color{white},
+	keywordstyle=\color{white},
+	commentstyle=\color{white},
+	stringstyle=\color{white},
+	backgroundcolor=\color{black},
+	breaklines=true,
+	numbers=left,
+	columns=fullflexible,
+	breaklines=true,
+	mathescape=false,
+	escapechar=\#,
+	tabsize=4,
+	frame=lines,
+	showstringspaces=false,
+	rulecolor=\color{black}
+}
