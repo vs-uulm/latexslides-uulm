@@ -2,7 +2,6 @@
 
 \LoadClass{beamer}
 
-\RequirePackage[utf8]{inputenc}
 \RequirePackage[english,ngerman,german]{babel}
 \RequirePackage{calc}
 \RequirePackage{amsmath,amssymb,amsfonts} 
@@ -11,10 +10,10 @@
 \RequirePackage{fancyvrb}
 \RequirePackage{array}
 \RequirePackage{colortbl}
-\RequirePackage{microtype}
 \RequirePackage{footnpag}
 \RequirePackage{wasysym}
 \RequirePackage{pgfpages}
+
 
 % Command for multiple choice answer
 \newcommand{\mc}[1]{\indent\hspace{0.5cm}$\bigcirc$ #1 \\}
@@ -140,4 +139,12 @@
 \let\oldfootnotesize\footnotesize
 \renewcommand*{\footnotesize}{\oldfootnotesize\tiny}
 
+
+\RequirePackage{fontspec}
+\setsansfont[
+Mapping=tex-text,Numbers={OldStyle,Proportional},Scale=.96,
+BoldFont={MetaPro-Bold},
+BoldItalicFont={MetaPro-BoldItalic},
+ItalicFont={MetaPro-BookItalic}
+]{MetaPro-Book}
 
