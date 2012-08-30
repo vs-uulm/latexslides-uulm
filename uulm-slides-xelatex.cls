@@ -1,4 +1,4 @@
-\ProvidesClass{uulm-slides}[2012/07/12 UUlm Slides]
+\ProvidesClass{uulm-slides-xelatex}[2012/07/12 UUlm Slides with XeLaTeX support]
 
 \LoadClass{beamer}
 
