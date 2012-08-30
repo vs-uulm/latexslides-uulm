@@ -1,0 +1,42 @@
+\documentclass{uulm-slides}
+
+\titlegraphic{titleimage.jpg}
+\title       {Beispielfolien}
+\subtitle    {Irgendeine Vorlesung}
+\author      {Stefan Dietzel}
+% \date     {17.07.2012}
+
+\usepackage{tikz}
+
+\begin{document}
+	\maketitle
+	
+	\begin{frame}
+		\frametitle{Aufzählung}
+		
+		\begin{itemize}
+			\item Lorem ipsum dolor sit amet.
+			\item Consectetur adipisicing elit.
+			\item Sed do eiusmod tempor incididunt.
+		\end{itemize}
+	\end{frame}
+	
+	\begin{frame}
+		\frametitle{TikZ ist kein Zeichenprogramm}
+		
+		\begin{tikzpicture}[node distance=4em]
+			\tikzstyle{every node}=[draw=uuinf,fill=uuakzent!40];
+			\tikzstyle{every node}=[draw=uuinf,fill=uuakzent!40];
+			\tikzstyle{every edge}=[very thick,draw=uuinf];
+			
+			\node (tikz) {TikZ};
+			\node[right of=tikz] (ist) {ist};
+			\node[right of=ist] (kein) {kein};
+			\node[below right of=kein] (z) {Zeichenprogramm};
+			
+			\draw[->] (tikz) edge[out=90]         (ist)
+			          (ist)  edge[out=-90,in=210] (kein)
+			          (kein) edge[out=0,in=90]    (z);
+		\end{tikzpicture}
+	\end{frame}
+\end{document}
