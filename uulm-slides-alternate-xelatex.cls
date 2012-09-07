@@ -1,8 +1,7 @@
-\ProvidesClass{uulm-slides}[2012/07/12 UUlm Slides]
+\ProvidesClass{uulm-slides-alternate-xelatex}[2012/07/12 Alternate UUlm Slides + XeLaTeX support]
 
 \LoadClass{beamer}
 
-\RequirePackage[utf8]{inputenc}
 \RequirePackage[english,ngerman,german]{babel}
 \RequirePackage{calc}
 \RequirePackage{amsmath,amssymb,amsfonts} 
@@ -11,7 +10,6 @@
 \RequirePackage{fancyvrb}
 \RequirePackage{array}
 \RequirePackage{colortbl}
-\RequirePackage{microtype}
 \RequirePackage{footnpag}
 \RequirePackage{wasysym}
 \RequirePackage{pgfpages}
@@ -92,22 +90,17 @@
 	    \includegraphics[width=.45\paperwidth]{uulm-logo-color}
 	\end{beamercolorbox}
     \else
-	\vskip 8pt
-			\textcolor{uulm-in}{\line(1,0){500}}
-
-	\vskip0pt
-	\hskip-4pt
+	\hskip-2pt
 	\hbox{
-	    \begin{beamercolorbox}[wd=.05\paperwidth,ht=2.75ex,dp=1.5ex,center]{headbox}
-			\textbf{\insertframenumber}
-		\end{beamercolorbox}
-		\hskip 5pt
-
-		\begin{beamercolorbox}[wd=.95\paperwidth,ht=2.75ex,dp=1.5ex,left]{lighthead}
-			\hspace*{1.5em}\insertshorttitle{} $|$ \insertshortauthor{} $|$ \insertshortdate
+	    \begin{beamercolorbox}[wd=.075\paperwidth,ht=2.75ex,dp=1.5ex,center]{headbox}
+		\textbf{\insertframenumber}
+	    \end{beamercolorbox}
+	    \hskip-2pt
+	    \begin{beamercolorbox}[wd=.95\paperwidth,ht=2.75ex,dp=1.5ex,left]{lighthead}
+		\hspace*{1.5em}\insertshorttitle{} $|$ \insertshortauthor{} $|$ \insertshortdate
 	    \end{beamercolorbox}
 	}
-	\vskip2.7em
+	\vskip3em
     \fi
 }
 
@@ -146,6 +139,15 @@
 
 \let\oldfootnotesize\footnotesize
 \renewcommand*{\footnotesize}{\oldfootnotesize\tiny}
+
+
+\RequirePackage{fontspec}
+\setsansfont[
+Mapping=tex-text,Numbers={OldStyle,Proportional},Scale=.96,
+BoldFont={MetaPro-Bold},
+BoldItalicFont={MetaPro-BoldItalic},
+ItalicFont={MetaPro-BookItalic}
+]{MetaPro-Book}
 
 
 \definecolor{darkviolet}{rgb}{0.5,0,0.4}
