@@ -42,6 +42,9 @@
 \definecolor{uulm-block1}{RGB}{229,227,213}
 \definecolor{uulm-block2}{RGB}{236,236,224}
 
+\definecolor{uuakzent}{named}{uulm-akzent}
+\definecolor{uuinf}{named}{uulm-in}
+
 \setbeamercolor{structure}{fg=uulm-in}
 \setbeamercolor{headbox}{bg=uulm-in,fg=white}
 \setbeamercolor{alerted text}{fg=uulm-in}
