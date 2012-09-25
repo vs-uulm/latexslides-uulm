@@ -43,7 +43,7 @@
 \setbeamercolor{structure}{fg=uulm-in}
 \setbeamercolor{headbox}{bg=uulm-in,fg=white}
 \setbeamercolor{alerted text}{fg=uulm-in}
-\setbeamercolor{lighthead}{fg=uulm-in!80!black,bg=white}
+\setbeamercolor{lighthead}{fg=uuakzent!80!black,bg=uuakzent!20!white}
 
 \setbeamercolor{palette primary}{use=structure,fg=structure.fg}
 \setbeamercolor{palette secondary}{fg=uulm-akzent}
