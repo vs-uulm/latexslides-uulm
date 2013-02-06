@@ -8,9 +8,10 @@ Look at the `example` folder for working examples.
 Class Options
 --------------
  * *none* – Original corporate design, default font (i.e. for usage with pdflatex)
- * `metafont`  – Original corporate design using Meta font via XeLaTeX.
- * `alternate` – Alternate design.
- * Both options can be combined.
+ * `metafont`  – original corporate design using Meta font via XeLaTeX.
+ * `alternate` – alternate design.
+ * `pdflogo` - use `uulm-logo-color.pdf` (must be in path) as logo instead of the embedded tikz code.
+ * All options can be combined.
 
 
 Installation (optional)
