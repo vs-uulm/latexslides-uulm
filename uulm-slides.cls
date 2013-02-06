@@ -1,8 +1,7 @@
-\ProvidesClass{uulm-slides}[2012/07/12 UUlm Slides]
+\ProvidesClass{uulm-slides}[2013/02/06 UUlm Slides]
 
 \LoadClass{beamer}
 
-\RequirePackage[utf8]{inputenc}
 \RequirePackage[english,ngerman,german]{babel}
 \RequirePackage{calc}
 \RequirePackage{amsmath,amssymb,amsfonts} 
@@ -16,6 +15,20 @@
 \RequirePackage{wasysym}
 \RequirePackage{pgfpages}
 \RequirePackage{listings}
+\RequirePackage{ifthen}
+\RequirePackage{iftex}
+
+\newboolean{alternate}\setboolean{alternate}{false}
+\DeclareOption{alternate}{\setboolean{alternate}{true}}
+\newboolean{metafont}\setboolean{metafont}{false}
+\DeclareOption{metafont}{\setboolean{metafont}{true}}
+\ProcessOptions*
+
+\ifXeTeX
+% \RequirePackage{fontspec}
+\else
+\RequirePackage[utf8]{inputenc}
+\fi
 
 % Command for multiple choice answer
 \newcommand{\mc}[1]{\indent\hspace{0.5cm}$\bigcirc$ #1 \\}
@@ -32,6 +45,10 @@
 \definecolor{uulm-mawi}{rgb}{0.3372,0.6667,0.1098}
 \definecolor{uulm-nawi}{rgb}{0.7411,0.3764,0.0196}
 
+% Backwards compatibility
+\definecolor{uuakzent}{named}{uulm-akzent}
+\definecolor{uuinf}{named}{uulm-in}
+
 \definecolor{uulm3}{RGB}{179,7,56}
 
 \definecolor{uulm2}{RGB}{185,46,66}
@@ -45,6 +62,7 @@
 \setbeamercolor{structure}{fg=uulm-in}
 \setbeamercolor{headbox}{bg=uulm-in,fg=white}
 \setbeamercolor{alerted text}{fg=uulm-in}
+
 \setbeamercolor{lighthead}{fg=uulm-in!80!black,bg=white}
 
 \setbeamercolor{palette primary}{use=structure,fg=structure.fg}
@@ -82,16 +100,51 @@
 \setbeamerfont{subtitle}{size=\footnotesize}
 \setbeamerfont{title}{size=\Large}
 
+\ifthenelse{\boolean{alternate}}{
+\setbeamercolor{lighthead}{fg=uuakzent!80!black,bg=uuakzent!20!white}
+}{}
+
+\ifthenelse{\boolean{metafont}}{
+\ifXeTeX
+\RequirePackage{fontspec}
+\setsansfont[
+Mapping=tex-text,Numbers={OldStyle,Proportional},Scale=.96,
+BoldFont={MetaPro-Bold},
+BoldItalicFont={MetaPro-BoldItalic},
+ItalicFont={MetaPro-BookItalic}
+]{MetaPro-Book}
+\else
+\ClassError{uulm-slides}{Option metafont requires compilation with XeLaTeX}{}
+\fi
+}{% no meta font
+\ifXeTeX
+\ClassError{uulm-slides}{Compilation with XeLaTeX requires use of Meta font}{}
+\fi
+}
+
 % Outer Theme
 \setbeamertemplate{footline}{ }
 \setbeamertemplate{navigation symbols}{}%remove navigation symbols
 \setbeamertemplate{headline}{
-    \ifnum\insertframenumber=1
+    \ifnum\insertframenumber=1 % title slide content
 	\vskip15pt
 	\begin{beamercolorbox}[wd=.5\paperwidth,leftskip=.5\paperwidth]{structure}
 	    \includegraphics[width=.45\paperwidth]{uulm-logo-color}
 	\end{beamercolorbox}
-    \else
+    \else % header line for subsequent slides
+	\ifthenelse{\boolean{alternate}}{% use alternate header
+	\hskip-2pt
+		\hbox{
+		    \begin{beamercolorbox}[wd=.075\paperwidth,ht=2.75ex,dp=1.5ex,center]{headbox}
+			\textbf{\insertframenumber}
+		    \end{beamercolorbox}
+		    \hskip-2pt
+		    \begin{beamercolorbox}[wd=.95\paperwidth,ht=2.75ex,dp=1.5ex,left]{lighthead}
+			\hspace*{1.5em}\insertshorttitle{} $|$ \insertshortauthor{} $|$ \insertshortdate
+		    \end{beamercolorbox}
+		}
+		\vskip3em
+	}{% use normal header
 	\vskip 8pt
 			\textcolor{uulm-in}{\line(1,0){500}}
 
@@ -108,7 +161,8 @@
 	    \end{beamercolorbox}
 	}
 	\vskip2.7em
-    \fi
+	}% /if alternate
+    \fi% /header
 }
 
 % Inner Theme
