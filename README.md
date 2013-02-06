@@ -22,4 +22,4 @@ The script `install.sh` can be used to install the package into the local `texmf
 Usage (without install)
 -----------------------
 
-If you prefer not to install the template and use self-contained sources instead, place a copy of the .cls file and `uulm-logo-color.pdf` in the directory of your slide deck source file.
+If you prefer not to install the template and use self-contained sources instead, place a copy of the .cls file and, optionally, `uulm-logo-color.pdf` (if you use the in the `pdflogo` option) in the directory of your slide deck source file.
