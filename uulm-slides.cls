@@ -205,9 +205,7 @@ ItalicFont={MetaPro-BookItalic}
 \setlength\leftmarginii{1.5em}
 \setlength\leftmarginiii{1.5em}
 
-\let\oldfootnotesize\footnotesize
-\renewcommand*{\footnotesize}{\oldfootnotesize\tiny}
-
+\setbeamerfont{footnote}{size=\tiny}
 
 \definecolor{darkviolet}{rgb}{0.5,0,0.4}
 \definecolor{darkgreen}{rgb}{0,0.4,0.2} 
