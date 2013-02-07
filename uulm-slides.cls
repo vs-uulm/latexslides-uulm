@@ -175,8 +175,13 @@ ItalicFont={MetaPro-BookItalic}
 % Inner Theme
 \useinnertheme{rectangles}
 \setbeamertemplate{title page}{
-    \begin{beamercolorbox}[wd=\paperwidth,ht=0.390625\paperwidth,leftskip=-0.075\paperwidth]{headbox}
-	\includegraphics[keepaspectratio,width=\paperwidth,height=0.390625\paperwidth]{\inserttitlegraphic}
+    \begin{beamercolorbox}[wd=\paperwidth,ht=0.390625\paperwidth,leftskip=-0.075\paperwidth]{}
+	\ifthenelse{\equal{\inserttitlegraphic}{}}{% no title graphic specified
+	\tikz \fill[uulm-akzent!60] (0,0) rectangle (\paperwidth,400/1024*\paperwidth);%
+	\ClassWarning{uulm-slides}{Please set a custom title graphic}
+	}{% include title graphic
+	\includegraphics[keepaspectratio,width=\paperwidth,height=0.390625\paperwidth]{\inserttitlegraphic}%
+	}
     \end{beamercolorbox}
     \vskip10pt
     \hbox{
