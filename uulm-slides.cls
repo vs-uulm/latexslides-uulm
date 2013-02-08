@@ -179,6 +179,9 @@ ItalicFont={MetaPro-BookItalic}
     \fi% /header
 }
 
+\def\@titlegraphiclicense{}
+\newcommand\titlegraphiclicense[1]{\def\@titlegraphiclicense{#1}}
+
 % Inner Theme
 \useinnertheme{rectangles}
 \setbeamertemplate{title page}{
@@ -187,7 +190,13 @@ ItalicFont={MetaPro-BookItalic}
 	\tikz \fill[uulm-akzent!60] (0,0) rectangle (\paperwidth,400/1024*\paperwidth);%
 	\ClassWarning{uulm-slides}{Please set a custom title graphic}
 	}{% include title graphic
-	\includegraphics[keepaspectratio,width=\paperwidth,height=0.390625\paperwidth]{\inserttitlegraphic}%
+	\begin{tikzpicture}
+	\clip (-0.5\paperwidth,-200/1024*\paperwidth) rectangle (0.5\paperwidth,200/1024*\paperwidth);
+	\node (pic) {\includegraphics[keepaspectratio,width=\paperwidth]{\inserttitlegraphic}};
+	
+	\node[above right,text=black,font=\tiny,xshift=1em+0.5pt,yshift=1ex-0.5pt] at (pic.south west) {\@titlegraphiclicense};
+	\node[above right,text=white,font=\tiny,xshift=1em,yshift=1ex] at (pic.south west) {\@titlegraphiclicense};
+	\end{tikzpicture}
 	}
     \end{beamercolorbox}
     \vskip10pt
