@@ -6,13 +6,20 @@ A document class that can be used to create LaTeX `beamer` slides featuring the 
 Look at the `example` folder for working examples.
 
 Class Options
---------------
+-------------
  * *none* – Original corporate design, default font (i.e. for usage with pdflatex)
  * `metafont`  – original corporate design using Meta font via XeLaTeX.
  * `alternate` – alternate design.
- * `pdflogo` - use `uulm-logo-color.pdf` (must be in path) as logo instead of the embedded tikz code.
+ * `pdflogo` – use `uulm-logo-color.pdf` (must be in path) as logo instead of the embedded tikz code.
+ * `uulm-in`, `-med`, `-mawi`, `-nawi`, `-central` – use color scheme of corresponding faculty.
  * All options can be combined.
 
+Commands
+--------
+
+Standard latex beamer commands work. In addition, the following notable extra commands are introduced:
+
+* `\titlegraphiclicense{...}` – Puts a text in the bottom left corner of the title graphic to indicate the license.
 
 Installation (optional)
 -----------------------
