@@ -19,6 +19,22 @@
 \RequirePackage{iftex}
 \RequirePackage{tikz}
 
+% Color Theme
+\definecolor{uulm}{RGB}{130,161,180}
+\definecolor{uulm-akzent}{rgb}{.663 .635 .553}
+
+\definecolor{uulm-in}{rgb}{.639 .149 .230}
+\definecolor{uulm-med}{rgb}{0.4901,0.6039,0.6666}
+\definecolor{uulm-mawi}{rgb}{0.3372,0.6667,0.1098}
+\definecolor{uulm-nawi}{rgb}{0.7411,0.3764,0.0196}
+
+\definecolor{uulm-myfak}{named}{uulm-in}
+\DeclareOption{uulm-in}{\definecolor{uulm-myfak}{named}{uulm-in}}
+\DeclareOption{uulm-med}{\definecolor{uulm-myfak}{named}{uulm-med}}
+\DeclareOption{uulm-mawi}{\definecolor{uulm-myfak}{named}{uulm-mawi}}
+\DeclareOption{uulm-nawi}{\definecolor{uulm-myfak}{named}{uulm-nawi}}
+\DeclareOption{uulm-central}{\definecolor{uulm-myfak}{named}{uulm}}
+
 \newboolean{alternate}\setboolean{alternate}{false}
 \newboolean{metafont}\setboolean{metafont}{false}
 \newboolean{pdflogo}\setboolean{pdflogo}{false}
@@ -40,33 +56,24 @@
 \newcommand{\select}[1]{\indent\hspace{0.5cm}$\Box$ #1 \\}
 \newcommand{\selected}[1]{\indent\hspace{0.5cm}$\rlap{$\checkmark$}\square$ #1 \\}
 
-% Color Theme
-\definecolor{uulm}{RGB}{130,161,180}
-\definecolor{uulm-akzent}{rgb}{.663 .635 .553}
-
-\definecolor{uulm-in}{rgb}{.639 .149 .230}
-\definecolor{uulm-med}{rgb}{0.4901,0.6039,0.6666}
-\definecolor{uulm-mawi}{rgb}{0.3372,0.6667,0.1098}
-\definecolor{uulm-nawi}{rgb}{0.7411,0.3764,0.0196}
-
 % Backwards compatibility
 \definecolor{uuakzent}{named}{uulm-akzent}
 \definecolor{uuinf}{named}{uulm-in}
 
-\definecolor{uulm3}{RGB}{179,7,56}
-\definecolor{uulm2}{RGB}{185,46,66}
-\definecolor{uulm1}{RGB}{193,71,82}
-\definecolor{uulm0}{RGB}{199,92,96}
+\colorlet{uulm3}{uulm-myfak!90}
+\colorlet{uulm2}{uulm-myfak!80}
+\colorlet{uulm1}{uulm-myfak!70}
+\colorlet{uulm0}{uulm-myfak!60}
 
-\definecolor{uulm-block0}{RGB}{244,243,237}
-\definecolor{uulm-block1}{RGB}{229,227,213}
-\definecolor{uulm-block2}{RGB}{236,236,224}
+\colorlet{uulm-block2}{uulm-akzent!30}
+\colorlet{uulm-block1}{uulm-akzent!40}
+\colorlet{uulm-block0}{uulm-akzent!20}
 
-\setbeamercolor{structure}{fg=uulm-in}
-\setbeamercolor{headbox}{bg=uulm-in,fg=white}
-\setbeamercolor{alerted text}{fg=uulm-in}
+\setbeamercolor{structure}{fg=uulm-myfak}
+\setbeamercolor{headbox}{bg=uulm-myfak,fg=white}
+\setbeamercolor{alerted text}{fg=uulm-myfak}
 
-\setbeamercolor{lighthead}{fg=uulm-in!80!black,bg=white}
+\setbeamercolor{lighthead}{fg=uulm-myfak!80!black,bg=white}
 
 \setbeamercolor{palette primary}{use=structure,fg=structure.fg}
 \setbeamercolor{palette secondary}{fg=uulm-akzent}
@@ -153,7 +160,7 @@ ItalicFont={MetaPro-BookItalic}
 		\vskip3em
 	}{% use normal header
 	\vskip 8pt
-			\textcolor{uulm-in}{\line(1,0){500}}
+			\textcolor{uulm-myfak}{\line(1,0){500}}
 
 	\vskip0pt
 	\hskip-4pt
