@@ -38,9 +38,11 @@
 \newboolean{alternate}\setboolean{alternate}{false}
 \newboolean{metafont}\setboolean{metafont}{false}
 \newboolean{pdflogo}\setboolean{pdflogo}{false}
+\newboolean{vslogo}\setboolean{vslogo}{false}
 \DeclareOption{alternate}{\setboolean{alternate}{true}}
 \DeclareOption{metafont}{\setboolean{metafont}{true}}
 \DeclareOption{pdflogo}{\setboolean{pdflogo}{true}}
+\DeclareOption{vslogo}{\setboolean{vslogo}{true}}
 \ProcessOptions*
 
 \ifXeTeX
@@ -138,6 +140,13 @@ ItalicFont={MetaPro-BookItalic}
 \setbeamertemplate{headline}{
     \ifnum\insertframenumber=1 % title slide content
 	\vskip15pt
+	\ifthenelse{\boolean{vslogo}}{%
+	\begin{beamercolorbox}[wd=.5\paperwidth,leftskip=0pt]{structure}
+	\vspace*{2.1em}
+	\par\hspace*{2em}\vslogo
+	\end{beamercolorbox}%
+	\vspace*{-5.1em}
+	}{}%
 	\begin{beamercolorbox}[wd=.5\paperwidth,leftskip=.5\paperwidth]{structure}
 		\ifthenelse{\boolean{pdflogo}}{%
 		\pdflogo
@@ -1190,4 +1199,49 @@ ItalicFont={MetaPro-BookItalic}
 		% }{%
 		% \ClassError{uulm-slides}{Place file uulm-logo-color.pdf in path to use option pdflogo}%
 		% }%/fileexists
+}
+
+\newcommand\vslogo{%
+\begin{tikzpicture}[y=0.80pt, x=0.8pt,yscale=-1, inner sep=0pt, outer sep=0pt]
+	\pgftransformscale{3em/30mm}
+\begin{scope}[cm={{1.25,0.0,0.0,-1.25,(0.0,177.1675)}}]
+      \begin{scope}[shift={(99.2129,113.3867)}]
+        \path[fill=uulm-in,nonzero rule] (0.0000,0.0000) -- (-28.3470,0.0000) ..
+          controls (-28.3470,-28.3470) and (0.0000,-85.0390) .. (0.0000,-85.0390) --
+          (28.3470,-85.0390) .. controls (56.6930,-33.0700) and (-15.0650,-50.8970) ..
+          (0.0000,0.0000);
+      \end{scope}
+      \begin{scope}[shift={(155.9053,113.3867)}]
+        \path[fill=uulm-in,nonzero rule] (0.0000,0.0000) -- (-28.3460,0.0000) ..
+          controls (-46.8860,-48.1530) and (27.7810,-30.4040) .. (0.0010,-85.0390) --
+          (14.1740,-85.0390) -- (14.1740,-70.8660) -- (14.1740,-14.1730) .. controls
+          (14.1740,-6.3460) and (7.8280,0.0000) .. (0.0000,0.0000);
+      \end{scope}
+      \begin{scope}[shift={(28.3467,99.2139)}]
+        \path[fill=uulm-in,nonzero rule] (0.0000,0.0000) -- (0.0000,-56.6930) ..
+          controls (0.0000,-64.5210) and (6.3460,-70.8660) .. (14.1730,-70.8660) --
+          (42.5200,-70.8660) .. controls (42.5200,-70.8660) and (14.1730,-13.9800) ..
+          (14.1730,14.1730) .. controls (6.3460,14.1730) and (0.0000,7.8270) ..
+          (0.0000,0.0000);
+      \end{scope}
+      \begin{scope}[shift={(99.4272,113.3867)}]
+        \path[fill=white,nonzero rule] (0.0000,0.0000) .. controls (-15.0650,-50.8970)
+          and (56.6930,-33.0700) .. (28.3470,-85.0390) -- (56.6930,-85.0390) .. controls
+          (84.4740,-30.4040) and (9.8070,-48.1530) .. (28.3470,0.0000) --
+          (0.0000,0.0000) -- cycle;
+      \end{scope}
+          \shade[shading=axis,bottom color=uulm-in!60,top color=uulm-in,shading angle=-30] (85.0390,60.2370) .. controls (92.1260,42.5210) and
+            (99.2130,28.3460) .. (99.2130,28.3460) -- (99.2130,28.3460) .. controls
+            (99.2130,28.3460) and (109.5400,49.0740) .. (117.7260,71.6970) --
+            (117.7260,71.6970) .. controls (108.3930,77.9380) and (98.3750,84.2770) ..
+            (97.2280,97.7960) -- (97.2280,97.7960) .. controls (94.6300,85.8490) and
+            (89.8380,72.2330) .. (85.0390,60.2370);
+      \begin{scope}[shift={(42.5195,113.3867)}]
+        \path[fill=white,nonzero rule] (0.0000,0.0000) .. controls (0.0000,-28.1530)
+          and (28.3470,-85.0390) .. (28.3470,-85.0390) -- (56.6930,-85.0390) .. controls
+          (56.6930,-85.0390) and (28.3470,-28.3470) .. (28.3470,0.0000) --
+          (0.0000,0.0000) -- cycle;
+      \end{scope}
+\end{scope}
+\end{tikzpicture}
 }

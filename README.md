@@ -12,6 +12,7 @@ Class Options
  * `alternate` – alternate design.
  * `pdflogo` – use `uulm-logo-color.pdf` (must be in path) as logo instead of the embedded tikz code.
  * `uulm-in`, `-med`, `-mawi`, `-nawi`, `-central` – use color scheme of corresponding faculty.
+ * `vslogo` – inserts distributed systems institute logo on title slide.
  * All options can be combined.
 
 Commands
@@ -19,7 +20,7 @@ Commands
 
 Standard latex beamer commands work. In addition, the following notable extra commands are introduced:
 
-* `\titlegraphiclicense{...}` – Puts a text in the bottom left corner of the title graphic to indicate the license.
+* `\titlegraphiclicense{...}` – puts a text in the bottom left corner of the title graphic to indicate the license.
 
 Installation (optional)
 -----------------------
