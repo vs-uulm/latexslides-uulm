@@ -16,7 +16,7 @@
 \RequirePackage{pgfpages}
 \RequirePackage{listings}
 \RequirePackage{ifthen}
-\RequirePackage{iftex}
+\RequirePackage{ifxetex}
 \RequirePackage{tikz}
 
 % Color Theme
@@ -45,7 +45,7 @@
 \DeclareOption{vslogo}{\setboolean{vslogo}{true}}
 \ProcessOptions*
 
-\ifXeTeX
+\ifxetex
 % \RequirePackage{fontspec}
 \else
 \RequirePackage[utf8]{inputenc}
@@ -117,7 +117,7 @@
 }{}
 
 \ifthenelse{\boolean{metafont}}{
-\ifXeTeX
+\ifxetex
 \RequirePackage{fontspec}
 \setsansfont[
 Mapping=tex-text,Numbers={OldStyle,Proportional},Scale=.96,
@@ -129,7 +129,7 @@ ItalicFont={MetaPro-BookItalic}
 \ClassError{uulm-slides}{Option metafont requires compilation with XeLaTeX}{}
 \fi
 }{% no meta font
-\ifXeTeX
+\ifxetex
 \ClassError{uulm-slides}{Compilation with XeLaTeX requires use of Meta font}{}
 \fi
 }
