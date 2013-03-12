@@ -35,7 +35,7 @@ if [ -d "$DIR/latex/$PACKAGE_NAME" ]; then
 	copy_files $DIR/latex/$PACKAGE_NAME
 else
 	echo "Initial installation. Copying files:"
-	mkdir $DIR/latex/$PACKAGE_NAME
+	mkdir -p $DIR/latex/$PACKAGE_NAME
 	copy_files $DIR/latex/$PACKAGE_NAME
 fi
 
