@@ -153,7 +153,10 @@ ItalicFont={MetaPro-BookItalic}
 		}{%
 		\uulmlogo%
 		}
+ 		\hfuzz=164pt % avoid overfull \hbox warning
 	\end{beamercolorbox}
+  	\vspace*{-10pt} % avoid overfull \vbox warning
+ 	\hfuzz=0pt % reset \hfuzz to reenable warnings
     \else % header line for subsequent slides
 	\ifthenelse{\boolean{alternate}}{% use alternate header
 	\hskip-2pt
@@ -164,12 +167,12 @@ ItalicFont={MetaPro-BookItalic}
 		    \hskip-2pt
 		    \begin{beamercolorbox}[wd=.95\paperwidth,ht=2.75ex,dp=1.5ex,left]{lighthead}
 			\hspace*{1.5em}\insertshorttitle{} $|$ \insertshortauthor{} $|$ \insertshortdate
-		    \end{beamercolorbox}
+		    \end{beamercolorbox}\hspace*{-11pt} % avoid overfull \hbox warning
 		}
-		\vskip3em
+		\vskip4em
 	}{% use normal header
 	\vskip 8pt
-			\textcolor{uulm-myfak}{\line(1,0){500}}
+			\textcolor{uulm-myfak}{\line(1,0){500}}\hspace*{-136pt} % avoid overfull \hbox warning
 
 	\vskip0pt
 	\hskip-4pt
@@ -181,7 +184,7 @@ ItalicFont={MetaPro-BookItalic}
 
 		\begin{beamercolorbox}[wd=.95\paperwidth,ht=2.75ex,dp=1.5ex,left]{lighthead}
 			\hspace*{1.5em}\insertshorttitle{} $|$ \insertshortauthor{} $|$ \insertshortdate
-	    \end{beamercolorbox}
+	    \end{beamercolorbox}\hspace*{-11pt} % avoid overfull \hbox warning
 	}
 	\vskip2.7em
 	}% /if alternate
@@ -194,6 +197,7 @@ ItalicFont={MetaPro-BookItalic}
 % Inner Theme
 \useinnertheme{rectangles}
 \setbeamertemplate{title page}{
+    \hfuzz=28pt % avoid overfull \hbox warning
     \begin{beamercolorbox}[wd=\paperwidth,ht=0.390625\paperwidth,leftskip=-0.075\paperwidth]{}
 	\ifthenelse{\equal{\inserttitlegraphic}{}}{% no title graphic specified
 	\tikz \fill[uulm-akzent!60] (0,0) rectangle (\paperwidth,400/1024*\paperwidth);%
@@ -208,6 +212,7 @@ ItalicFont={MetaPro-BookItalic}
 	\end{tikzpicture}
 	}
     \end{beamercolorbox}
+    \hfuzz=0pt % reset \hfuzz to reenable warnings
     \vskip10pt
     \hbox{
     \begin{beamercolorbox}[left,leftskip=-0.075\paperwidth,wd=.385\paperwidth]{author}
