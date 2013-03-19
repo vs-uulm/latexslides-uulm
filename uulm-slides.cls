@@ -37,10 +37,12 @@
 
 \newboolean{alternate}\setboolean{alternate}{false}
 \newboolean{metafont}\setboolean{metafont}{false}
+\newboolean{metaprofont}\setboolean{metaprofont}{false}
 \newboolean{pdflogo}\setboolean{pdflogo}{false}
 \newboolean{vslogo}\setboolean{vslogo}{false}
 \DeclareOption{alternate}{\setboolean{alternate}{true}}
 \DeclareOption{metafont}{\setboolean{metafont}{true}}
+\DeclareOption{metaprofont}{\setboolean{metaprofont}{true}}
 \DeclareOption{pdflogo}{\setboolean{pdflogo}{true}}
 \DeclareOption{vslogo}{\setboolean{vslogo}{true}}
 \ProcessOptions*
@@ -116,7 +118,8 @@
 \setbeamercolor{lighthead}{fg=uuakzent!80!black,bg=uuakzent!20!white}
 }{}
 
-\ifthenelse{\boolean{metafont}}{
+% Select MetaPro font
+\ifthenelse{\boolean{metaprofont}}{
 \ifxetex
 \RequirePackage{fontspec}
 \setsansfont[
@@ -126,12 +129,28 @@ BoldItalicFont={MetaPro-BoldItalic},
 ItalicFont={MetaPro-BookItalic}
 ]{MetaPro-Book}
 \else
+\ClassError{uulm-slides}{Option metaprofont requires compilation with XeLaTeX}{}
+\fi
+}{% no meta font
+}
+
+% Select Meta font
+\ifthenelse{\boolean{metafont}}{
+\ifxetex
+\RequirePackage{fontspec}
+\setsansfont[
+Mapping=tex-text,Numbers={OldStyle,Proportional},Scale=.96,
+BoldFont={MetaBold-Roman},
+BoldItalicFont={MetaBold-Italic},
+ItalicFont={MetaBook-Italic}
+]{MetaBook-Roman}
+\else
 \ClassError{uulm-slides}{Option metafont requires compilation with XeLaTeX}{}
 \fi
 }{% no meta font
-\ifxetex
-\ClassError{uulm-slides}{Compilation with XeLaTeX requires use of Meta font}{}
-\fi
+%\ifxetex
+%\ClassError{uulm-slides}{Compilation with XeLaTeX requires use of Meta font}{}
+%\fi
 }
 
 % Outer Theme
