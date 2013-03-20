@@ -9,11 +9,12 @@ Class Options
 -------------
  * *none* – Original corporate design, default font (i.e. for usage with pdflatex)
  * `metafont`  – original corporate design using Meta font via XeLaTeX.
+ * `metaprofont`  – original corporate design using MetaPro font via XeLaTeX.
  * `alternate` – alternate design.
  * `pdflogo` – use `uulm-logo-color.pdf` (must be in path) as logo instead of the embedded tikz code.
  * `uulm-in`, `-med`, `-mawi`, `-nawi`, `-central` – use color scheme of corresponding faculty.
  * `vslogo` – inserts distributed systems institute logo on title slide.
- * All options can be combined.
+ * All options can be combined, except `metafont` and `metaprofont`.
 
 Commands
 --------
