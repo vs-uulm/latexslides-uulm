@@ -5,12 +5,10 @@
 \RequirePackage[english,ngerman,german]{babel}
 \RequirePackage{calc}
 \RequirePackage{amsmath,amssymb,amsfonts} 
-\RequirePackage{times}
 \RequirePackage{graphicx}
 \RequirePackage{fancyvrb}
 \RequirePackage{array}
 \RequirePackage{colortbl}
-\RequirePackage{microtype}
 \RequirePackage{footnpag}
 \RequirePackage{wasysym}
 \RequirePackage{pgfpages}
@@ -18,6 +16,13 @@
 \RequirePackage{ifthen}
 \RequirePackage{ifxetex}
 \RequirePackage{tikz}
+
+\ifxetex
+\RequirePackage{fontspec}
+\else
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{helvet}
+\fi
 
 % Color Theme
 \definecolor{uulm}{RGB}{130,161,180}
@@ -40,18 +45,13 @@
 \newboolean{metaprofont}\setboolean{metaprofont}{false}
 \newboolean{pdflogo}\setboolean{pdflogo}{false}
 \newboolean{vslogo}\setboolean{vslogo}{false}
+\newboolean{xetexwhelvetica}\setboolean{xetexwhelvetica}{true}
 \DeclareOption{alternate}{\setboolean{alternate}{true}}
 \DeclareOption{metafont}{\setboolean{metafont}{true}}
 \DeclareOption{metaprofont}{\setboolean{metaprofont}{true}}
 \DeclareOption{pdflogo}{\setboolean{pdflogo}{true}}
 \DeclareOption{vslogo}{\setboolean{vslogo}{true}}
 \ProcessOptions*
-
-\ifxetex
-% \RequirePackage{fontspec}
-\else
-\RequirePackage[utf8]{inputenc}
-\fi
 
 % Command for multiple choice answer
 \newcommand{\mc}[1]{\indent\hspace{0.5cm}$\bigcirc$ #1 \\}
@@ -121,7 +121,7 @@
 % Select MetaPro font
 \ifthenelse{\boolean{metaprofont}}{
 \ifxetex
-\RequirePackage{fontspec}
+\setboolean{xetexwhelvetica}{false}
 \setsansfont[
 Mapping=tex-text,Numbers={OldStyle,Proportional},Scale=.96,
 BoldFont={MetaPro-Bold},
@@ -131,27 +131,34 @@ ItalicFont={MetaPro-BookItalic}
 \else
 \ClassError{uulm-slides}{Option metaprofont requires compilation with XeLaTeX}{}
 \fi
-}{% no meta font
-}
+}{}
 
 % Select Meta font
 \ifthenelse{\boolean{metafont}}{
 \ifxetex
-\RequirePackage{fontspec}
+\setboolean{xetexwhelvetica}{false}
 \setsansfont[
-Mapping=tex-text,Numbers={OldStyle,Proportional},Scale=.96,
+Mapping=tex-text,Scale=.96,
 BoldFont={MetaBold-Roman},
 BoldItalicFont={MetaBold-Italic},
-ItalicFont={MetaBook-Italic}
+ItalicFont={MetaBook-Italic},
+SmallCapsFont={MetaBook-Caps}
 ]{MetaBook-Roman}
 \else
 \ClassError{uulm-slides}{Option metafont requires compilation with XeLaTeX}{}
 \fi
-}{% no meta font
-%\ifxetex
-%\ClassError{uulm-slides}{Compilation with XeLaTeX requires use of Meta font}{}
-%\fi
-}
+}{}
+
+% no meta font but using xetex -> use Arial to be CD (does also not break UTF-8) 
+\ifxetex
+\ifthenelse{\boolean{xetexwhelvetica}}{
+\setsansfont[
+Ligatures=TeX,
+SmallCapsFont={Arial}
+]{Arial}
+}{}
+\fi
+
 
 % Outer Theme
 \setbeamertemplate{footline}{ }
