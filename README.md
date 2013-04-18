@@ -14,6 +14,7 @@ Class Options
  * `pdflogo` – use `uulm-logo-color.pdf` (must be in path) as logo instead of the embedded tikz code.
  * `uulm-in`, `-med`, `-mawi`, `-nawi`, `-central` – use color scheme of corresponding faculty.
  * `vslogo` – inserts distributed systems institute logo on title slide.
+ * `vslogo` – inserts media informatics institute logo on title slide.
  * All options can be combined, except `metafont` and `metaprofont`.
 
 Commands

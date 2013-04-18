@@ -1,4 +1,4 @@
-\ProvidesClass{uulm-slides}[2013/02/06 UUlm Slides]
+\ProvidesClass{uulm-slides}[2013/04/18 UUlm Slides]
 
 \LoadClass{beamer}
 
@@ -1908,5 +1908,33 @@ SmallCapsFont={Arial}
           (0.0000,0.0000) -- cycle;
       \end{scope}
 \end{scope}
-\end{tikzpicture}
+\end{tikzpicture}%
 }
+
+\newcommand\milogo{%
+\hspace*{-0.08cm}%
+\begin{tikzpicture}[y=0.8pt,x=0.8pt,yscale=-1, inner sep=0pt, outer sep=0pt]
+	\pgftransformscale{0.74}
+\begin{scope}[cm={{1.25,0.0,0.0,-1.25,(0.0,56.6925)}}]
+      \begin{scope}[shift={(19.8301,45.3511)}]
+        \path[fill=uulm,nonzero rule] (0.0000,0.0000) -- (12.9580,-12.9570) --
+          (-12.9530,-45.3510) .. controls (-20.6340,-37.6230) and (-22.9180,-28.8530) ..
+          (-14.3960,-17.9980) -- (0.0000,0.0000) -- cycle;
+      \end{scope}
+      \begin{scope}[shift={(45.8057,45.3511)}]
+        \path[fill=uulm,nonzero rule] (0.0000,0.0000) -- (12.8960,-12.9570) --
+          (-13.0210,-45.3510) -- (-25.9760,-32.3940) -- (0.0000,0.0000) -- cycle;
+      \end{scope}
+      \begin{scope}[shift={(58.7012,29.1504)}]
+        \path[fill=uulm,nonzero rule] (0.0000,0.0000) -- (0.0000,-29.1460) --
+          (-12.9550,-16.1930) -- (0.0000,0.0000) -- cycle;
+      \end{scope}
+      \begin{scope}[shift={(60.6406,45.3511)}]
+        \path[fill=uulm-in,nonzero rule] (0.0000,0.0000) -- (0.0000,-45.3470) --
+          (13.5330,-28.4290) -- (13.5330,-12.9570) .. controls (13.5880,-4.7310) and
+          (9.7180,0.1370) .. (0.0000,0.0000);
+      \end{scope}
+\end{scope}
+\end{tikzpicture}
+\hspace*{-0.038cm}
+}%milogo
