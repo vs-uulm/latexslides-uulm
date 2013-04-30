@@ -25,13 +25,13 @@
 \fi
 
 % Color Theme
-\definecolor{uulm}{RGB}{130,161,180}
-\definecolor{uulm-akzent}{rgb}{.663 .635 .553}
+\definecolor{uulm}{RGB}{125,154,170}
+\definecolor{uulm-akzent}{RGB}{169,162,141}
 
-\definecolor{uulm-in}{rgb}{.639 .149 .230}
-\definecolor{uulm-med}{rgb}{0.4901,0.6039,0.6666}
-\definecolor{uulm-mawi}{rgb}{0.3372,0.6667,0.1098}
-\definecolor{uulm-nawi}{rgb}{0.7411,0.3764,0.0196}
+\definecolor{uulm-in}{RGB}{163,38,56}
+\definecolor{uulm-med}{RGB}{38,84,124}
+\definecolor{uulm-mawi}{RGB}{86,170,28}
+\definecolor{uulm-nawi}{RGB}{189,96,5}
 
 \definecolor{uulm-myfak}{named}{uulm-in}
 \DeclareOption{uulm-in}{\definecolor{uulm-myfak}{named}{uulm-in}}
