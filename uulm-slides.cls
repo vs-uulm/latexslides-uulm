@@ -195,7 +195,7 @@ SmallCapsFont={Arial}
 			\hspace*{1.5em}\insertshorttitle{} $|$ \insertshortauthor{} $|$ \insertshortdate
 		    \end{beamercolorbox}\hspace*{-11pt} % avoid overfull \hbox warning
 		}
-		\vskip4em
+		\vskip2em
 	}{% use normal header
 	\vskip 8pt
 			\textcolor{uulm-myfak}{\line(1,0){500}}\hspace*{-136pt} % avoid overfull \hbox warning
