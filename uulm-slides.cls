@@ -1,4 +1,4 @@
-\ProvidesClass{uulm-slides}[2013/04/18 UUlm Slides]
+\ProvidesClass{uulm-slides}[2013/06/03 UUlm Slides]
 
 \LoadClass{beamer}
 
@@ -229,7 +229,7 @@ SmallCapsFont={Arial}
 	\tikz \fill[uulm-akzent!60] (0,0) rectangle (\paperwidth,400/1024*\paperwidth);%
 	\ClassWarning{uulm-slides}{Please set a custom title graphic}
 	}{% include title graphic
-	\begin{tikzpicture}
+	\begin{tikzpicture}[every path/.style={}]
 	\clip (-0.5\paperwidth,-200/1024*\paperwidth) rectangle (0.5\paperwidth,200/1024*\paperwidth);
 	\node (pic) {\includegraphics[keepaspectratio,width=\paperwidth]{\inserttitlegraphic}};
 	
