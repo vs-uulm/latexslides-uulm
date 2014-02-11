@@ -192,7 +192,7 @@ SmallCapsFont={Arial}
 		    \end{beamercolorbox}
 		    \hskip-2pt
 		    \begin{beamercolorbox}[wd=.95\paperwidth,ht=2.75ex,dp=1.5ex,left]{lighthead}
-			\hspace*{1.5em}\insertshorttitle{} $|$ \insertshortauthor{} $|$ \insertshortdate
+			\hspace*{1.5em}\insertshorttitle{}\hphantom{---}$|$\hphantom{---}\insertshortauthor{}\hphantom{---}$|$\hphantom{---}\insertshortdate
 		    \end{beamercolorbox}\hspace*{-11pt} % avoid overfull \hbox warning
 		}
 		\vskip2em
