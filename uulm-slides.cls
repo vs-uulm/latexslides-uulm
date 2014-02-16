@@ -1,4 +1,4 @@
-\ProvidesClass{uulm-slides}[2013/06/03 UUlm Slides]
+\ProvidesClass{uulm-slides}[2014/02/16 UUlm Slides]
 
 \LoadClass{beamer}
 
@@ -111,6 +111,7 @@
 % Font Theme
 \usepackage{helvet}
 \setbeamerfont{author}{size=\footnotesize}
+\setbeamerfont{affiliation}{size=\footnotesize}
 \setbeamerfont{subtitle}{size=\footnotesize}
 \setbeamerfont{title}{size=\Large}
 
@@ -217,6 +218,9 @@ SmallCapsFont={Arial}
     \fi% /header
 }
 
+\def\@affiliation{}
+\newcommand\affiliation[1]{\def\@affiliation{#1}}
+
 \def\@titlegraphiclicense{}
 \newcommand\titlegraphiclicense[1]{\def\@titlegraphiclicense{#1}}
 
@@ -243,8 +247,15 @@ SmallCapsFont={Arial}
     \hbox{
     \begin{beamercolorbox}[left,leftskip=-0.075\paperwidth,wd=.385\paperwidth]{author}
 	\usebeamerfont{author}\insertauthor
+	\ifthenelse{\equal{\@affiliation}{}}{% no affiliation specified
+	}{% include affiliation
+        	\vskip1pt
+		\usebeamerfont{affiliation}\@affiliation
+	}
+
         \vskip5pt
 	\insertdate
+
 \end{beamercolorbox}
 % \hskip5pt
 % \hfill
