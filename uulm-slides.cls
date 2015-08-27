@@ -4,7 +4,7 @@
 
 \RequirePackage[english,ngerman,german]{babel}
 \RequirePackage{calc}
-\RequirePackage{amsmath,amssymb,amsfonts} 
+\RequirePackage{amsmath,amssymb,amsfonts}
 \RequirePackage{graphicx}
 \RequirePackage{fancyvrb}
 \RequirePackage{array}
@@ -41,12 +41,15 @@
 \DeclareOption{uulm-central}{\definecolor{uulm-myfak}{named}{uulm}}
 
 \newboolean{alternate}\setboolean{alternate}{false}
+\newboolean{firafont}\setboolean{firafont}{false}
 \newboolean{metafont}\setboolean{metafont}{false}
 \newboolean{metaprofont}\setboolean{metaprofont}{false}
 \newboolean{pdflogo}\setboolean{pdflogo}{false}
 \newboolean{vslogo}\setboolean{vslogo}{false}
 \newboolean{xetexwhelvetica}\setboolean{xetexwhelvetica}{true}
+
 \DeclareOption{alternate}{\setboolean{alternate}{true}}
+\DeclareOption{firafont}{\setboolean{firafont}{true}}
 \DeclareOption{metafont}{\setboolean{metafont}{true}}
 \DeclareOption{metaprofont}{\setboolean{metaprofont}{true}}
 \DeclareOption{pdflogo}{\setboolean{pdflogo}{true}}
@@ -119,6 +122,12 @@
 \setbeamercolor{lighthead}{fg=uuakzent!80!black,bg=uuakzent!20!white}
 }{}
 
+% Select Fira Font
+\ifthenelse{\boolean{firafont}}{
+\RequirePackage{FiraSans}
+\usepackage{FiraSans}
+}{}
+
 % Select MetaPro font
 \ifthenelse{\boolean{metaprofont}}{
 \ifxetex
@@ -150,7 +159,7 @@ SmallCapsFont={MetaBook-Caps}
 \fi
 }{}
 
-% no meta font but using xetex -> use Arial to be CD (does also not break UTF-8) 
+% no meta font but using xetex -> use Arial to be CD (does also not break UTF-8)
 \ifxetex
 \ifthenelse{\boolean{xetexwhelvetica}}{
 \setsansfont[
@@ -236,7 +245,7 @@ SmallCapsFont={Arial}
 	\begin{tikzpicture}[every path/.style={}]
 	\clip (-0.5\paperwidth,-200/1024*\paperwidth) rectangle (0.5\paperwidth,200/1024*\paperwidth);
 	\node (pic) {\includegraphics[keepaspectratio,width=\paperwidth]{\inserttitlegraphic}};
-	
+
 	\node[above right,text=black,font=\tiny,xshift=1em+0.5pt,yshift=1ex-0.5pt] at (pic.south west) {\@titlegraphiclicense};
 	\node[above right,text=white,font=\tiny,xshift=1em,yshift=1ex] at (pic.south west) {\@titlegraphiclicense};
 	\end{tikzpicture}
@@ -280,7 +289,7 @@ SmallCapsFont={Arial}
 \setbeamerfont{footnote}{size=\tiny}
 
 \definecolor{darkviolet}{rgb}{0.5,0,0.4}
-\definecolor{darkgreen}{rgb}{0,0.4,0.2} 
+\definecolor{darkgreen}{rgb}{0,0.4,0.2}
 \definecolor{darkblue}{rgb}{0.1,0.1,0.9}
 \definecolor{darkgrey}{rgb}{0.5,0.5,0.5}
 \definecolor{lightblue}{rgb}{0.4,0.4,1}
@@ -288,7 +297,7 @@ SmallCapsFont={Arial}
 %Eclipse style (http://trac.rtsys.informatik.uni-kiel.de/trac/rtsys/wiki/Latex/Examples/Listings)
 \lstdefinestyle{eclipse}{
 	basicstyle=\tiny\ttfamily,
-	emphstyle=\color{red}\bfseries, 
+	emphstyle=\color{red}\bfseries,
 	keywordstyle=\color{darkviolet}\bfseries,
 	commentstyle=\color{darkgreen},
 	stringstyle=\color{darkblue},
