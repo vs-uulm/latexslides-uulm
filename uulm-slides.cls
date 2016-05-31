@@ -234,11 +234,12 @@ SmallCapsFont={Arial}
 	\ClassWarning{uulm-slides}{Please set a custom title graphic}
 	}{% include title graphic
 	\begin{tikzpicture}[every path/.style={}]
+	\coordinate (bottomleft) at (-0.5\paperwidth,-200/1024*\paperwidth);
 	\clip (-0.5\paperwidth,-200/1024*\paperwidth) rectangle (0.5\paperwidth,200/1024*\paperwidth);
 	\node (pic) {\includegraphics[keepaspectratio,width=\paperwidth]{\inserttitlegraphic}};
 	
-	\node[above right,text=black,font=\tiny,xshift=1em+0.5pt,yshift=1ex-0.5pt] at (pic.south west) {\@titlegraphiclicense};
-	\node[above right,text=white,font=\tiny,xshift=1em,yshift=1ex] at (pic.south west) {\@titlegraphiclicense};
+	\node[above right,text=black,font=\tiny,xshift=1em+0.5pt,yshift=1ex-0.5pt] at (bottomleft) {\@titlegraphiclicense};
+	\node[above right,text=white,font=\tiny,xshift=1em,yshift=1ex] at (bottomleft) {\@titlegraphiclicense};
 	\end{tikzpicture}
 	}
     \end{beamercolorbox}
