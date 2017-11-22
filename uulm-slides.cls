@@ -1,6 +1,6 @@
-\ProvidesClass{uulm-slides}[2016/05/31 UUlm Slides]
+\ProvidesClass{uulm-slides}[2017/11/22 UUlm Slides]
 
-\LoadClass{beamer}
+\LoadClassWithOptions{beamer}
 
 \RequirePackage[english,ngerman,german]{babel}
 \RequirePackage{calc}
@@ -230,12 +230,12 @@ SmallCapsFont={Arial}
     \hfuzz=28pt % avoid overfull \hbox warning
     \begin{beamercolorbox}[wd=\paperwidth,ht=0.390625\paperwidth,leftskip=-0.075\paperwidth]{}
 	\ifthenelse{\equal{\inserttitlegraphic}{}}{% no title graphic specified
-	\tikz \fill[uulm-akzent!60] (0,0) rectangle (\paperwidth,400/1024*\paperwidth);%
+	\tikz \fill[uulm-akzent!60] (0,0) rectangle (\paperwidth,0.5*\paperheight);%
 	\ClassWarning{uulm-slides}{Please set a custom title graphic}
 	}{% include title graphic
 	\begin{tikzpicture}[every path/.style={}]
-	\coordinate (bottomleft) at (-0.5\paperwidth,-200/1024*\paperwidth);
-	\clip (-0.5\paperwidth,-200/1024*\paperwidth) rectangle (0.5\paperwidth,200/1024*\paperwidth);
+	\coordinate (bottomleft) at (-0.5\paperwidth,-0.25\paperheight);
+	\clip (-0.5\paperwidth,-0.25\paperheight) rectangle (0.5\paperwidth,0.25\paperheight);
 	\node (pic) {\includegraphics[keepaspectratio,width=\paperwidth]{\inserttitlegraphic}};
 	
 	\node[above right,text=black,font=\tiny,xshift=1em+0.5pt,yshift=1ex-0.5pt] at (bottomleft) {\@titlegraphiclicense};
@@ -258,9 +258,8 @@ SmallCapsFont={Arial}
 	\insertdate
 
 \end{beamercolorbox}
-% \hskip5pt
-% \hfill
-\begin{beamercolorbox}[left,wd=.5\paperwidth]{title}
+ \hskip5pt
+\begin{beamercolorbox}[left,wd=.45\paperwidth]{title}
 	\usebeamerfont{title}\inserttitle
         \vskip5pt
 	\usebeamerfont{subtitle}
