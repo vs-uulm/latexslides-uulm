@@ -1,6 +1,6 @@
 \ProvidesClass{uulm-slides}[2016/05/31 UUlm Slides]
 
-\LoadClass{beamer}
+\LoadClassWithOptions{beamer}
 
 \RequirePackage[english,ngerman,german]{babel}
 \RequirePackage{calc}
