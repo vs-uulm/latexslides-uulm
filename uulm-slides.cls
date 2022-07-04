@@ -213,35 +213,12 @@ SmallCapsFont={Arial}
 \setbeamertemplate{title page}{
     \hfuzz=28pt % avoid overfull \hbox warning
 	\begin{tikzpicture}[overlay, remember picture, every path/.style={}]
-%		\node[minimum width=.5*\paperwidth, text width=.5*\paperwidth, text height=.25*\paperwidth, anchor=north west, yshift=-.75*\paperheight, inner sep=0] at (current page.north west) {
-%			\vskip10pt
-%			\usebeamerfont{author}\insertauthor
-%			\ifthenelse{\equal{\@affiliation}{}}{% no affiliation specified
-%			}{% include affiliation
-%				\vskip1pt
-%				\usebeamerfont{affiliation}\@affiliation
-%			}
-%			\vskip5pt
-%			\insertdate
-%		};
-%		\node[minimum width=.5*\paperwidth, text width=.5*\paperwidth, text height=.25*\paperwidth, anchor=north west, yshift=-.75*\paperheight, xshift=.5*\paperwidth, inner sep=0] at (current page.north west) {
-%			\vskip10pt
-%			\usebeamercolor[fg]{title}
-%			\usebeamerfont{title}\inserttitle
-%			\vskip5pt
-%			\usebeamerfont{subtitle}\insertsubtitle
-%		};
-
 		\ifthenelse{\boolean{vslogo}}{
 			\node[xshift=1.08em,yshift=1.97em+.75*\paperheight,anchor=south west,inner sep=0] at (current page.south west) {\resizebox{!}{.0657\paperheight}{\vslogo}};
 		}{}
 		\node[xshift=-1.67em,yshift=1.67em+.75*\paperheight,anchor=south east,inner sep=0] at (current page.south east) {
 			\resizebox{!}{.1243\paperheight}{\ifthenelse{\boolean{pdflogo}}{\pdflogo}{\uulmlogo}}
 		};
-		% 	
-		% \end{beamercolorbox}
-		% \vspace*{-10pt} % avoid overfull \vbox warning
-		% \hfuzz=0pt % reset \hfuzz to reenable warnings
 
 		\node[minimum width=\paperwidth, text width=\paperwidth, text height=.25*\paperwidth, anchor=south west, inner sep=.7em] at (current page.south west) {
 			\hbox{
