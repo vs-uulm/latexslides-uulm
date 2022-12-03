@@ -1,4 +1,4 @@
-\ProvidesClass{uulm-slides}[2021/11/17 UUlm Slides]
+\ProvidesClass{uulm-slides}[2022/12/03 UUlm Slides]
 
 \LoadClassWithOptions{beamer}
 
@@ -17,7 +17,18 @@
 \RequirePackage{ifxetex}
 \RequirePackage{tikz}
 
+\newif\ifxetexorluatex
 \ifxetex
+  \xetexorluatextrue
+\else
+  \ifluatex
+    \xetexorluatextrue
+  \else
+    \xetexorluatexfalse
+  \fi
+\fi
+
+\ifxetexorluatex
 \RequirePackage{fontspec}
 \else
 \RequirePackage[utf8]{inputenc}
@@ -121,7 +132,7 @@
 
 % Select MetaPro font
 \ifthenelse{\boolean{metaprofont}}{
-\ifxetex
+\ifxetexorluatex
 \setboolean{xetexwhelvetica}{false}
 \setsansfont[
 Mapping=tex-text,Numbers={OldStyle,Proportional},Scale=.96,
@@ -136,7 +147,7 @@ ItalicFont={MetaPro-BookItalic}
 
 % Select Meta font
 \ifthenelse{\boolean{metafont}}{
-\ifxetex
+\ifxetexorluatex
 \setboolean{xetexwhelvetica}{false}
 \setsansfont[
 Mapping=tex-text,Scale=.96,
@@ -151,7 +162,7 @@ SmallCapsFont={MetaBook-Caps}
 }{}
 
 % no meta font but using xetex -> use Arial to be CD (does also not break UTF-8) 
-\ifxetex
+\ifxetexorluatex
 \ifthenelse{\boolean{xetexwhelvetica}}{
 \setsansfont[
 Ligatures=TeX,
