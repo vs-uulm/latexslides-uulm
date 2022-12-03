@@ -62,6 +62,7 @@
 \DeclareOption{metaprofont}{\setboolean{metaprofont}{true}}
 \DeclareOption{pdflogo}{\setboolean{pdflogo}{true}}
 \DeclareOption{vslogo}{\setboolean{vslogo}{true}}
+\DeclareOption*{\PassOptionsToClass{\CurrentOption}{beamer}}
 \ProcessOptions*
 
 % Command for multiple choice answer
@@ -173,59 +174,41 @@ SmallCapsFont={Arial}
 
 
 % Outer Theme
-\setbeamertemplate{footline}{ }
+\setbeamertemplate{footline}{}
 \setbeamertemplate{navigation symbols}{}%remove navigation symbols
 \setbeamertemplate{headline}{
-    \ifnum\insertframenumber=1 % title slide content
-	\vskip15pt
-	\ifthenelse{\boolean{vslogo}}{%
-	\begin{beamercolorbox}[wd=.5\paperwidth,leftskip=0pt]{structure}
-	\vspace*{2.1em}
-	\par\hspace*{2em}\vslogo
-	\end{beamercolorbox}%
-	\vspace*{-5.1em}
-	}{}%
-	\begin{beamercolorbox}[wd=.485\paperwidth,leftskip=.615\paperwidth]{structure}
-		\ifthenelse{\boolean{pdflogo}}{%
-		\pdflogo
-		}{%
-		\uulmlogo%
-		}
- 		\hfuzz=164pt % avoid overfull \hbox warning
-	\end{beamercolorbox}
-  	\vspace*{-10pt} % avoid overfull \vbox warning
- 	\hfuzz=0pt % reset \hfuzz to reenable warnings
-    \else % header line for subsequent slides
-	\ifthenelse{\boolean{alternate}}{% use alternate header
-	\hskip-2pt
-		\hbox{
-		    \begin{beamercolorbox}[wd=.075\paperwidth,ht=2.75ex,dp=1.5ex,center]{headbox}
-			\textbf{\insertframenumber}
-		    \end{beamercolorbox}
-		    \hskip-2pt
-		    \begin{beamercolorbox}[wd=.95\paperwidth,ht=2.75ex,dp=1.5ex,left]{lighthead}
-			\hspace*{1.5em}\insertshorttitle{}\hphantom{---}$|$\hphantom{---}\insertshortauthor{}\hphantom{---}$|$\hphantom{---}\insertshortdate
-		    \end{beamercolorbox}\hspace*{-11pt} % avoid overfull \hbox warning
-		}
-		\vskip2em
-	}{% use normal header
-	\vskip 8pt
+    \ifnum\insertframenumber>1
+		\ifthenelse{\boolean{alternate}}{% use alternate header
+			\hskip-2pt
+			\hbox{
+				\begin{beamercolorbox}[wd=.075\paperwidth,ht=2.75ex,dp=1.5ex,center]{headbox}
+				\textbf{\insertframenumber}
+				\end{beamercolorbox}
+				\hskip-2pt
+				\begin{beamercolorbox}[wd=.95\paperwidth,ht=2.75ex,dp=1.5ex,left]{lighthead}
+				\hspace*{1.5em}\insertshorttitle{}\hphantom{---}$|$\hphantom{---}\insertshortauthor{}\hphantom{---}$|$\hphantom{---}\insertshortdate
+				\end{beamercolorbox}\hspace*{-11pt} % avoid overfull \hbox warning
+			}
+			\vskip2em
+		}{% use normal header
+			\vskip 8pt
 			\textcolor{uulm-myfak}{\line(1,0){500}}\hspace*{-136pt} % avoid overfull \hbox warning
+			\vskip0pt
+			\hskip-4pt
+			\hbox{
+				\begin{beamercolorbox}[wd=.05\paperwidth,ht=2.75ex,dp=1.5ex,center]{headbox}
+					\textbf{\insertframenumber}
+				\end{beamercolorbox}
+				\hskip 5pt
 
-	\vskip0pt
-	\hskip-4pt
-	\hbox{
-	    \begin{beamercolorbox}[wd=.05\paperwidth,ht=2.75ex,dp=1.5ex,center]{headbox}
-			\textbf{\insertframenumber}
-		\end{beamercolorbox}
-		\hskip 5pt
-
-		\begin{beamercolorbox}[wd=.95\paperwidth,ht=2.75ex,dp=1.5ex,left]{lighthead}
-			\hspace*{1.5em}\insertshorttitle{} $|$ \insertshortauthor{} $|$ \insertshortdate
-	    \end{beamercolorbox}\hspace*{-11pt} % avoid overfull \hbox warning
-	}
-	\vskip2.7em
-	}% /if alternate
+				\begin{beamercolorbox}[wd=.95\paperwidth,ht=2.75ex,dp=1.5ex,left]{lighthead}
+					\hspace*{1.5em}\insertshorttitle{} $|$ \insertshortauthor{} $|$ \insertshortdate
+				\end{beamercolorbox}\hspace*{-11pt} % avoid overfull \hbox warning
+			}
+			\vskip2.7em
+		}% /if alternate
+	\else
+		\vskip25pt
     \fi% /header
 }
 
@@ -236,49 +219,53 @@ SmallCapsFont={Arial}
 \newcommand\titlegraphiclicense[1]{\def\@titlegraphiclicense{#1}}
 
 % Inner Theme
+
 \useinnertheme{rectangles}
 \setbeamertemplate{title page}{
     \hfuzz=28pt % avoid overfull \hbox warning
-    \begin{beamercolorbox}[wd=\paperwidth,ht=0.390625\paperwidth,leftskip=-0.075\paperwidth]{}
-	\ifthenelse{\equal{\inserttitlegraphic}{}}{% no title graphic specified
-	\tikz \fill[uulm-akzent!60] (0,0) rectangle (\paperwidth,400/1024*\paperwidth);%
-	\ClassWarning{uulm-slides}{Please set a custom title graphic}
-	}{% include title graphic
-	\begin{tikzpicture}[every path/.style={}]
-	\coordinate (bottomleft) at (-0.5\paperwidth,-200/1024*\paperwidth);
-	\clip (-0.5\paperwidth,-200/1024*\paperwidth) rectangle (0.5\paperwidth,200/1024*\paperwidth);
-	\node (pic) {\includegraphics[keepaspectratio,width=\paperwidth]{\inserttitlegraphic}};
-	
-	\node[above right,text=black,font=\tiny,xshift=1em+0.5pt,yshift=1ex-0.5pt] at (bottomleft) {\@titlegraphiclicense};
-	\node[above right,text=white,font=\tiny,xshift=1em,yshift=1ex] at (bottomleft) {\@titlegraphiclicense};
+	\begin{tikzpicture}[overlay, remember picture, every path/.style={}]
+		\ifthenelse{\boolean{vslogo}}{
+			\node[xshift=1.08em,yshift=1.97em+.75*\paperheight,anchor=south west,inner sep=0] at (current page.south west) {\resizebox{!}{.0657\paperheight}{\vslogo}};
+		}{}
+		\node[xshift=-1.67em,yshift=1.67em+.75*\paperheight,anchor=south east,inner sep=0] at (current page.south east) {
+			\resizebox{!}{.1243\paperheight}{\ifthenelse{\boolean{pdflogo}}{\pdflogo}{\uulmlogo}}
+		};
+
+		\node[minimum width=\paperwidth, text width=\paperwidth, text height=.25*\paperwidth, anchor=south west, inner sep=.7em] at (current page.south west) {
+			\hbox{
+				\begin{beamercolorbox}[left,wd=.459\paperwidth]{author}
+					\usebeamerfont{author}\insertauthor
+					\ifthenelse{\equal{\@affiliation}{}}{% no affiliation specified
+					}{% include affiliation
+						\vskip1pt
+						\usebeamerfont{affiliation}\@affiliation
+					}
+
+					\vskip5pt
+					\insertdate
+				\end{beamercolorbox}
+				\begin{beamercolorbox}[left,wd=.5\paperwidth]{title}
+					\usebeamerfont{title}\inserttitle
+					\vskip5pt
+					\usebeamerfont{subtitle}
+					\insertsubtitle
+				\end{beamercolorbox}
+			}
+		};
+
+		\clip ([yshift=.2625*\paperheight] current page.south west) rectangle ++(\paperwidth,.522*\paperheight);
+		\node[draw=none, fill=uulm-akzent!60, minimum width=\paperwidth+1pt, minimum height=0.522*\paperheight, anchor=south west, yshift=.2625*\paperheight,xshift=-1pt, inner sep=0] at (current page.south west) {
+			\ifthenelse{\equal{\inserttitlegraphic}{}}{% no title graphic specified
+				\ClassWarning{uulm-slides}{Please set a custom title graphic}
+			}{% include title graphic
+				\includegraphics[keepaspectratio,width=\paperwidth+1pt]{\inserttitlegraphic}
+			}
+		};
+
+		\node[anchor=south west,text=black,font=\tiny,xshift=1em+0.5pt,yshift=1ex-0.5pt] at ([yshift=.25*\paperheight] current page.south west) {\@titlegraphiclicense};
+		\node[anchor=south west,text=white,font=\tiny,xshift=1em,yshift=1ex] at ([yshift=.25*\paperheight] current page.south west) {\@titlegraphiclicense};
+
 	\end{tikzpicture}
-	}
-    \end{beamercolorbox}
-    \hfuzz=0pt % reset \hfuzz to reenable warnings
-    \vskip10pt
-    \hbox{
-    \begin{beamercolorbox}[left,leftskip=-0.075\paperwidth,wd=.385\paperwidth]{author}
-	\usebeamerfont{author}\insertauthor
-	\ifthenelse{\equal{\@affiliation}{}}{% no affiliation specified
-	}{% include affiliation
-        	\vskip1pt
-		\usebeamerfont{affiliation}\@affiliation
-	}
-
-        \vskip5pt
-	\insertdate
-
-\end{beamercolorbox}
-% \hskip5pt
-% \hfill
-\begin{beamercolorbox}[left,wd=.5\paperwidth]{title}
-	\usebeamerfont{title}\inserttitle
-        \vskip5pt
-	\usebeamerfont{subtitle}
-        \insertsubtitle
-\end{beamercolorbox}
-    }
-    \vskip-30pt
 }
 
 \setbeamersize{sidebar width left=.075\paperwidth}
