@@ -13,8 +13,9 @@
 \RequirePackage{wasysym}
 \RequirePackage{pgfpages}
 \RequirePackage{listings}
+\RequirePackage{ccicons}
 \RequirePackage{ifthen}
-\RequirePackage{ifxetex}
+\RequirePackage{iftex}
 \RequirePackage{tikz}
 
 \newif\ifxetexorluatex
@@ -223,6 +224,9 @@ SmallCapsFont={Arial}
 \def\@affiliation{}
 \newcommand\affiliation[1]{\def\@affiliation{#1}}
 
+\def\@license{}
+\newcommand\license[1]{\def\@license{#1}}
+
 \def\@titlegraphiclicense{}
 \newcommand\titlegraphiclicense[1]{\def\@titlegraphiclicense{#1}}
 
@@ -251,6 +255,12 @@ SmallCapsFont={Arial}
 
 					\vskip5pt
 					\insertdate
+
+					\ifthenelse{\equal{\@affiliation}{}}{% no license specified
+					}{% include license
+						\vskip1pt
+						\@license{}
+					}
 				\end{beamercolorbox}
 				\begin{beamercolorbox}[left,wd=.5\paperwidth]{title}
 					\usebeamerfont{title}\inserttitle

@@ -24,6 +24,8 @@ Commands
 Standard latex beamer commands work. In addition, the following notable extra commands are introduced:
 
 * `\titlegraphiclicense{...}` – puts a text in the bottom left corner of the title graphic to indicate the license.
+* `\affiliation{...}` – puts an affiliation in the bottom left corner of the title slide beneath the author.
+* `\license{\ccby}` – puts a license in the bottom left corner of the title slide beneath the date (also see [ccicons](https://ctan.org/pkg/ccicons) package)
 
 Installation (optional)
 -----------------------
