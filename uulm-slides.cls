@@ -4,7 +4,7 @@
 
 \RequirePackage[english,ngerman,german]{babel}
 \RequirePackage{calc}
-\RequirePackage{amsmath,amssymb,amsfonts} 
+\RequirePackage{amsmath,amssymb,amsfonts}
 \RequirePackage{graphicx}
 \RequirePackage{fancyvrb}
 \RequirePackage{array}
@@ -52,12 +52,15 @@
 \DeclareOption{uulm-central}{\definecolor{uulm-myfak}{named}{uulm}}
 
 \newboolean{alternate}\setboolean{alternate}{false}
+\newboolean{firafont}\setboolean{firafont}{false}
 \newboolean{metafont}\setboolean{metafont}{false}
 \newboolean{metaprofont}\setboolean{metaprofont}{false}
 \newboolean{pdflogo}\setboolean{pdflogo}{false}
 \newboolean{vslogo}\setboolean{vslogo}{false}
 \newboolean{xetexwhelvetica}\setboolean{xetexwhelvetica}{true}
+
 \DeclareOption{alternate}{\setboolean{alternate}{true}}
+\DeclareOption{firafont}{\setboolean{firafont}{true}}
 \DeclareOption{metafont}{\setboolean{metafont}{true}}
 \DeclareOption{metaprofont}{\setboolean{metaprofont}{true}}
 \DeclareOption{pdflogo}{\setboolean{pdflogo}{true}}
@@ -129,6 +132,11 @@
 
 \ifthenelse{\boolean{alternate}}{
 \setbeamercolor{lighthead}{fg=uuakzent!80!black,bg=uuakzent!20!white}
+}{}
+
+% Select Fira Font
+\ifthenelse{\boolean{firafont}}{
+\RequirePackage[sfdefault]{FiraSans}
 }{}
 
 % Select MetaPro font
@@ -279,7 +287,7 @@ SmallCapsFont={Arial}
 \setbeamerfont{footnote}{size=\tiny}
 
 \definecolor{darkviolet}{rgb}{0.5,0,0.4}
-\definecolor{darkgreen}{rgb}{0,0.4,0.2} 
+\definecolor{darkgreen}{rgb}{0,0.4,0.2}
 \definecolor{darkblue}{rgb}{0.1,0.1,0.9}
 \definecolor{darkgrey}{rgb}{0.5,0.5,0.5}
 \definecolor{lightblue}{rgb}{0.4,0.4,1}
@@ -287,7 +295,7 @@ SmallCapsFont={Arial}
 %Eclipse style (http://trac.rtsys.informatik.uni-kiel.de/trac/rtsys/wiki/Latex/Examples/Listings)
 \lstdefinestyle{eclipse}{
 	basicstyle=\tiny\ttfamily,
-	emphstyle=\color{red}\bfseries, 
+	emphstyle=\color{red}\bfseries,
 	keywordstyle=\color{darkviolet}\bfseries,
 	commentstyle=\color{darkgreen},
 	stringstyle=\color{darkblue},

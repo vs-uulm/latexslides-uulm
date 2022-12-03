@@ -8,14 +8,15 @@ Look at the `example` folder for working examples.
 Class Options
 -------------
  * *none* – Original corporate design, default font (i.e. for usage with pdflatex)
- * `metafont`  – original corporate design using Meta font via XeLaTeX.
- * `metaprofont`  – original corporate design using MetaPro font via XeLaTeX.
+ * `firafont`  – use Fira Sans as main font (works with pdflatex, XeTeX, LuaTeX).
+ * `metafont`  – original corporate design using Meta font via XeTeX/LuaTeX.
+ * `metaprofont`  – original corporate design using MetaPro font via XeTeX/LuaTeX.
  * `alternate` – alternate design.
  * `pdflogo` – use `uulm-logo.pdf` (must be in path) as logo instead of the embedded tikz code.
  * `uulm-in`, `-med`, `-mawi`, `-nawi`, `-central` – use color scheme of corresponding faculty.
  * `vslogo` – inserts distributed systems institute logo on title slide.
  * `milogo` – inserts media informatics institute logo on title slide.
- * All options can be combined, except `metafont` and `metaprofont`.
+ * All options can be combined, except `firafont`, `metafont`, and `metaprofont`.
 
 Commands
 --------
